@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons menuToggle>
+      <button>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-segment [(ngModel)]="type">
+      <ion-segment-button value="all">
+        全部
+      </ion-segment-button>
+      <ion-segment-button value="wait">
+        待付款
+      </ion-segment-button>
+      <ion-segment-button value="down">
+        已完成
+      </ion-segment-button>
+    </ion-segment>
+    <ion-buttons end>
+      <button>编辑</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="about">
+  <ion-card>
+    <div *ngIf = "type == 'all'|| type == 'wait'">
+      <ion-card-header>
+        待付款
+      </ion-card-header>
+      <ion-list *ngFor="let item of indents">
+        <ion-item>
+          <ion-label>{{item.name}}</ion-label>
+          <ion-checkbox dark checked="true"></ion-checkbox>
+          <ion-thumbnail item-left>
+            <img [src]="item.image">
+          </ion-thumbnail>
+          <button clear item-right>
+            查看订单
+          </button>
+        </ion-item>
+        <ion-item *ngFor="let commodity of item.commodity">
+          <ion-avatar item-left>
+            <img [src]="commodity.image"/>
+          </ion-avatar>
+          <h2>{{commodity.name}}</h2>
+          <ion-note item-right>数量:{{commodity.number}}</ion-note>
+          <ion-note item-right>单价:{{commodity.money}}</ion-note>
+        </ion-item>
+        <ion-row>
+          <ion-col center>
+            <button primary clear small>
+              <ion-icon name="cart"></ion-icon>
+              <div>124</div>
+            </button>
+          </ion-col>
+          <ion-col center>
+            <button primary clear small>
+              <ion-icon name="list"></ion-icon>
+              <div>12个</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button primary outline block>
+              支付
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </div>
+    <div *ngIf = "type == 'all'|| type == 'down'">
+      <ion-card-header>
+        已完成
+      </ion-card-header>
+
+      <ion-list *ngFor="let item of indents">
+        asfasfas
+      </ion-list>
+    </div>
+  </ion-card>
+</ion-content>

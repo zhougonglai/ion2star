@@ -1,0 +1,14 @@
+.home {
+  ion-slides{
+    background: #fff;
+    border-color: transparent;
+    height:200px;
+    .slide-zoom {
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
